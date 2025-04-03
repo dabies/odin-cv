@@ -1,42 +1,69 @@
+/* MAIN DIV STYLING */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100vw;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.cv-input-container, 
+.cv-output-container {
+  height: 90vw;
+  border: 1mm solid black;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cv-input-container {
+  width: 35vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* STYLING FOR CV OUTPUT DIV AND ELEMENTS */
+.cv-output-container {
+  width: 55vw;
+}
+.cv-output-header {
+  background-color: blueviolet;
+  padding: 1vw;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column;
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Vertically align items */
+  border-bottom: 1px solid #ccc; /* Optional bottom border */
+  height: auto;
+  margin-bottom: 2vw;
 }
 
-.card {
-  padding: 2em;
+.cv-output-header-contacts {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5vw;
+  font-size: 1.5vw;
+  margin-top: -2vw;
 }
 
-.read-the-docs {
-  color: #888;
+.cv-output-resume-section {
+  margin-bottom: -2vw;
+}
+
+.cv-output-topic-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cv-output-content-div,
+.cv-output-content-div-supplemental {
+  padding: 1rem;
+  margin-top: -3vw;
+}
+
+.cv-output-content-div-supplemental h2 {
+  margin-bottom: 2vw;
+}
+
+/* STYLING FOR CV INPUT DIV AND ELEMENTS */
+
+.cv-input-container button {
+  border: 1mm solid gray;
 }

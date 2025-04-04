@@ -1,4 +1,4 @@
-export default function ResumeHeader({fullName, email, phoneNumber}) {
+export default function ResumeHeader({ fullName, email, phoneNumber }) {
     return (
         <div className="cv-output-header">
             <h1>{fullName}</h1>
@@ -7,6 +7,5 @@ export default function ResumeHeader({fullName, email, phoneNumber}) {
                 <p>{phoneNumber}</p>
             </div>
         </div>
-        
     )
 }

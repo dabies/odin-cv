@@ -6,24 +6,46 @@ import Topic from './components/sectionTopic'
 import TopicHeader from './components/sectionTopic'
 import List from './components/list'
 import AppButton from './components/button'
+import ContactForm from './form'
+import Card from './components/card'
 
 function App() {
   const bullets = ['did some stuff', 'did some more stuff', 'did one other thing, this one was really important and made me valuable']
-  const [phoneNumber, setNumber] = useState('425-867-5309');
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [headerData, setHeaderData] = useState({
+      fullName: 'Noah Kahan',
+      email: 'noah@music.com',
+      phoneNumber: '425-867-5309'
+  });
 
-  function changeNumber(number) {
-    setNumber(number);
+  function editHeaderButtonClick() {
+    setShowContactForm(true);
   }
+
+  function handleSubmission(newData) {
+    setHeaderData(newData);
+    setShowContactForm(false);
+  }
+
+  function handleExit() {
+    setShowContactForm(false);
+  }
+
   return (
     <>
     <div className='cv-input-container'>
-      <AppButton onClick={() => changeNumber('yo momma')}>Contact</AppButton>
+      <div>
+        {showContactForm?
+         <Card><ContactForm initialValues={headerData} onSubmission={handleSubmission} onExit={handleExit}></ContactForm></Card> :
+          <AppButton onClick={() => editHeaderButtonClick()}>
+            Edit Header Info</AppButton>}
+      </div>
     </div>
     <div className='cv-output-container'>
       <ResumeHeader 
-        fullName='Daniel Bies' 
-        email='dan@gmail.com' 
-        phoneNumber={phoneNumber}>
+      fullName={headerData.fullName} 
+      email={headerData.email} 
+      phoneNumber={headerData.phoneNumber}>
       </ResumeHeader>
       <div className="cv-output-content-div">
         <Section name='Education'></Section>

@@ -17,6 +17,11 @@
 
 .cv-input-container {
   width: 35vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vw;
+  border-radius: 20px;
 }
 
 /* STYLING FOR CV OUTPUT DIV AND ELEMENTS */
@@ -66,4 +71,31 @@
 
 .cv-input-container button {
   border: 1mm solid gray;
+}
+
+form {
+  line-height: 2rem;
+}
+
+.card {
+  border: 1mm solid gray;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  padding: 1vw;
+  position: relative;
+  background-color: bisque;
+}
+
+.card .exit {
+  padding: 5px;
+  position: absolute;
+  top: 0.5vw;
+  right: 0.5vw;
+}
+
+.card .submit {
+  transform: translate(-50%);
 }

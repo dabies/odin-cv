@@ -69,12 +69,24 @@
 
 /* STYLING FOR CV INPUT DIV AND ELEMENTS */
 
-.cv-input-container button {
+.cv-input-container .cv-input-button {
   border: 1mm solid gray;
+  border-radius: 15px;
+  background-color: lightgoldenrodyellow;
+  padding: 4vw;
+  font-size: 2vw;
 }
 
 form {
   line-height: 2rem;
+}
+
+.card .submit{
+  padding: 5px;
+  font-size: 1vw;
+  transform: translate(51%);
+  background-color: lightgray;
+  border: 1mm solid gray;
 }
 
 .card {
@@ -94,8 +106,4 @@ form {
   position: absolute;
   top: 0.5vw;
   right: 0.5vw;
-}
-
-.card .submit {
-  transform: translate(-50%);
 }

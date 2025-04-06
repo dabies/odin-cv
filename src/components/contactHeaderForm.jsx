@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ContactForm({onSubmission, onExit, initialValues}) {
+export default function ContactForm({onSubmission, onExit, initialValues, formLocation}) {
     const[formData, setFormData] = useState(initialValues);
 
     const handleChange = (e) => {
@@ -9,9 +9,9 @@ export default function ContactForm({onSubmission, onExit, initialValues}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmission(formData);
+        onSubmission(formData, formLocation);
     }
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -44,7 +44,7 @@ export default function ContactForm({onSubmission, onExit, initialValues}) {
                     onChange={handleChange} />
                 </label>
             </div>
-            <button type="submit" onSubmit={onSubmission}>Save Changes</button>
+            <button className='submit' type="submit" onSubmit={onSubmission}>Save Changes</button>
             <button 
             className="exit" 
             aria-label="exit-form"

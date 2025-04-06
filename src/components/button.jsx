@@ -1,3 +1,3 @@
 export default function AppButton({children, onClick}) {
-    return <button onClick={onClick}>{children}</button>
+    return <button className='cv-input-button' onClick={onClick}>{children}</button>
 }

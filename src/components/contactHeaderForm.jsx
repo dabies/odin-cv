@@ -21,7 +21,8 @@ export default function ContactForm({onSubmission, onExit, initialValues, formLo
                     name="fullName" 
                     id="fullName" 
                     value={formData.fullName}
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required />
                 </label>
             </div>
             <div>
@@ -31,7 +32,8 @@ export default function ContactForm({onSubmission, onExit, initialValues, formLo
                     name="email" 
                     id="email"
                     value={formData.email}
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required />
                 </label>
             </div>
             <div>
@@ -41,7 +43,25 @@ export default function ContactForm({onSubmission, onExit, initialValues, formLo
                     name="phoneNumber" 
                     id="phoneNumber"
                     value={formData.phoneNumber}
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required />
+                </label>
+            </div>
+            <div>
+                <label htmlFor="bullet1">Resume Bullet:
+                    <input onChange={handleChange} type="text" value={formData.bullet1} name='bullet1' id="bullet1" required/>
+                </label>
+                <label htmlFor="bullet2">Resume Bullet:
+                    <input onChange={handleChange} type="text" value={formData.bullet2} name='bullet2' id="bullet2" required/>
+                </label>
+                <label htmlFor="bullet3">Resume Bullet:
+                    <input onChange={handleChange} type="text" value={formData.bullet3} name='bullet3' id="bullet3" required/>
+                </label>
+                <label htmlFor="bullet4">Resume Bullet (optional):
+                    <input onChange={handleChange} type="text" value={formData.bullet4} name='bullet4' id="bullet4" />
+                </label>
+                <label htmlFor="bullet5">Resume Bullet (optional):
+                    <input onChange={handleChange} type="text" value={formData.bullet5} name='bullet5' id="bullet5" />
                 </label>
             </div>
             <button className='submit' type="submit" onSubmit={onSubmission}>Save Changes</button>

@@ -1,55 +1,65 @@
 /* MAIN DIV STYLING */
 #root {
-  height: 100vw;
   width: 100vw;
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 5vw;
+  background-color: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .cv-input-container, 
 .cv-output-container {
-  height: 90vw;
-  border: 1mm solid black;
+  height: auto;
+  margin-top: 5vh;
 }
 
 .cv-input-container {
+  border: 1mm solid gray;
+  background-color: whitesmoke;
   width: 35vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1vw;
+  padding: 2vw;
   border-radius: 20px;
 }
 
 /* STYLING FOR CV OUTPUT DIV AND ELEMENTS */
 .cv-output-container {
+  border: 1mm solid black;
   width: 55vw;
 }
 .cv-output-header {
   background-color: blueviolet;
   padding: 1vw;
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column;
-  justify-content: space-between; /* Space items evenly */
+  display: grid; /* Use flexbox for layout */
+  grid-template-columns: 3fr 2fr;
   align-items: center; /* Vertically align items */
   border-bottom: 1px solid #ccc; /* Optional bottom border */
-  height: auto;
+  min-height: 18vh;
   margin-bottom: 2vw;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
 }
 
 .cv-output-header-contacts {
   display: flex;
-  justify-content: space-evenly;
-  gap: 5vw;
-  font-size: 1.5vw;
-  margin-top: -2vw;
-}
-
-.cv-output-resume-section {
-  margin-bottom: -2vw;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.1vw;
+  text-align: left;
+  margin-bottom: 1vw;
 }
 
 .cv-output-topic-row {
@@ -59,12 +69,26 @@
 
 .cv-output-content-div,
 .cv-output-content-div-supplemental {
-  padding: 1rem;
+  padding: 2vw;
   margin-top: -3vw;
+  background-color: whitesmoke;
+}
+
+.cv-output-content-div li,
+.cv-output-content-div-supplemental li {
+  margin-left: 2vw;
+}
+
+.cv-output-content-div li:first-of-type {
+  margin-top: 1vw;
+}
+
+.cv-output-content-div .title {
+  margin-top: 1vw;
 }
 
 .cv-output-content-div-supplemental h2 {
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
 }
 
 /* STYLING FOR CV INPUT DIV AND ELEMENTS */
@@ -73,8 +97,13 @@
   border: 1mm solid gray;
   border-radius: 15px;
   background-color: lightgoldenrodyellow;
-  padding: 4vw;
+  margin-bottom: 0.5vw;
   font-size: 2vw;
+}
+
+.cv-input-button {
+  padding: 1.5vw;
+  width: 25vw;
 }
 
 form {
@@ -87,18 +116,44 @@ form {
   transform: translate(51%);
   background-color: lightgray;
   border: 1mm solid gray;
+  margin-top: 1vw;
 }
 
 .card {
+  min-width: 100%;
   border: 1mm solid gray;
   border-radius: 20px;
   display: flex;
+  flex-shrink: 1;
   flex-direction: column;
   align-items: center;
   width: fit-content;
   padding: 1vw;
   position: relative;
   background-color: bisque;
+}
+
+.card label {
+  display: block;
+  text-align: left;
+}
+
+.card input, 
+.card textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1vw;
+}
+
+.card textarea {
+  height: 8vh;
+}
+
+.card textarea:focus {
+  height: 12vh;
 }
 
 .card .exit {

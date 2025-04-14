@@ -8,16 +8,17 @@ import AppButton from './components/button'
 import ContactForm from './components/contactHeaderForm'
 import Card from './components/card'
 import ResumeBodyForm from './components/resumeBodyForm'
-import SkillsForm from './skillsForm'
-import BulletsList from './resumeList'
+import SkillsForm from './components/skillsForm'
+import BulletsList from './components/resumeList'
 
 function App() {
-  const bullets = ['did some stuff', 'did some more stuff', 'did one other thing, this one was really important and made me valuable']
   const [showContactForm, setShowContactForm] = useState(false);
   const [headerData, setHeaderData] = useState({
       fullName: 'Bob Dylan',
       email: 'bob@music.com',
-      phoneNumber: '425-867-5309'
+      phoneNumber: '425-867-5309',
+      website: 'bobdylan.com',
+      linkedIn: 'www.bobdylanslinkedin.com'
   });
 
   const [showEducationForm, setShowEducationForm] = useState(false);
@@ -31,6 +32,20 @@ function App() {
     bullet3: 'Left school to follow dream of being a musician',
     bullet4: '',
     bullet5: ''
+  })
+
+  const [showSecondEducationForm, setShowSecondEducationForm] = useState(false);
+  const [secondEducationData, setSecondEducationData] = useState({
+    title: 'Self Directed Learning',
+    date: 'March 2024 - Present',
+    institution: 'The Odin Project',
+    location: 'Online School',
+    bullet1: 'Did some coding stuff',
+    bullet2: 'Did some more coding stuff',
+    bullet3: 'If you can believe it, did even more coding stuff',
+    bullet4: '',
+    bullet5: ''
+
   })
 
   const [showWorkForm, setShowWorkForm] = useState(false);
@@ -88,60 +103,85 @@ function App() {
   console.log(skillsData);
 
   function editFormButtonClick(buttonLocation) {
-    if(buttonLocation === 'header') {
-      setShowContactForm(true);
-    } else if (buttonLocation === 'education') {
-      setShowEducationForm(true);
-    } else if (buttonLocation === 'work') {
-      setShowWorkForm(true);
-    } else if(buttonLocation === 'secondWork') {
-      setShowSecondWorkForm(true);
-    } else if(buttonLocation === 'thirdWork') {
-      setShowThirdWorkForm(true);
-    } else if(buttonLocation === 'skills') {
-      setShowSkillsForm(true);
+    switch(buttonLocation) {
+      case 'header':
+        setShowContactForm(true);
+        break;
+      case 'education':
+        setShowEducationForm(true);
+        break;
+      case 'secondEducation':
+        setShowSecondEducationForm(true);
+        break;
+      case 'work':
+        setShowWorkForm(true);
+        break;
+      case 'secondWork':
+        setShowSecondWorkForm(true);
+        break;
+      case 'thirdWork':
+        setShowThirdWorkForm(true);
+        break;
+      case 'skills':
+        setShowSkillsForm(true);
     }
-    
   }
 
   function handleSubmission(newData, formLocation) {
-    if(formLocation === 'header') {
-      setHeaderData(newData);
-      setShowContactForm(false);
-    } else if (formLocation === 'education') {
-      setEducationData(newData);
-      setShowEducationForm(false);
-    } else if(formLocation === 'work') {
-      setWorkData(newData);
-      setShowWorkForm(false);
-    } else if(formLocation === 'secondWork') {
-      setSecondWorkData(newData);
-      setShowSecondWorkForm(false);
-    } else if(formLocation === 'thirdWork') {
-      setThirdWorkData(newData);
-      setShowThirdWorkForm(false);
-    } else if(formLocation === 'skills') {
-      setSkillsData(newData);
-      setShowSkillsForm(false);
+    switch(formLocation) {
+      case 'header':
+        setHeaderData(newData);
+        setShowContactForm(false);
+        break;
+      case 'education':
+        setEducationData(newData);
+        setShowEducationForm(false);
+        break;
+      case 'secondEducation':
+        setSecondEducationData(newData);
+        setShowSecondEducationForm(false);
+        break;
+      case 'work':
+        setWorkData(newData);
+        setShowWorkForm(false);
+        break;
+      case 'secondWork':
+        setSecondWorkData(newData);
+        setShowSecondWorkForm(false);
+        break;
+      case 'thirdWork':
+        setThirdWorkData(newData);
+        setShowThirdWorkForm(false);
+        break;
+      case 'skills':
+        setSkillsData(newData);
+        setShowSkillsForm(false);
     }
-    
   }
 
   function handleExit(exitLocation) {
-    if(exitLocation === 'header') {
-      setShowContactForm(false);
-    } else if(exitLocation === 'education') {
-      setShowEducationForm(false);
-    } else if(exitLocation === 'work') {
-      setShowWorkForm(false);
-    } else if(exitLocation === 'secondWork') {
-      setShowSecondWorkForm(false);
-    } else if(exitLocation === 'thirdWork') {
-      setShowThirdWorkForm(false);
-    } else if(exitLocation === 'skills') {
-      setShowSkillsForm(false);
+    switch(exitLocation) {
+      case 'header':
+        setShowContactForm(false);
+        break;
+      case 'education':
+        setShowEducationForm(false);
+        break;
+      case 'secondEducation':
+        setShowSecondEducationForm(false);
+        break;
+      case 'work':
+        setShowWorkForm(false);
+        break;
+      case 'secondWork':
+        setShowSecondWorkForm(false);
+        break;
+      case 'thirdWork':
+        setShowThirdWorkForm(false);
+        break;
+      case 'skills':
+        setShowSkillsForm(false);
     }
-    
   }
 
   return (
@@ -161,7 +201,15 @@ function App() {
             <ResumeBodyForm initialValues={educationData} onSubmission={handleSubmission} onExit={() => handleExit('education')} formLocation='education'></ResumeBodyForm>
             </Card> :
             <AppButton onClick={() => editFormButtonClick('education')}>
-              Edit Education Info</AppButton>}
+              Edit Education</AppButton>}
+      </div>
+      <div>
+        {showSecondEducationForm?
+          <Card>
+            <ResumeBodyForm initialValues={secondEducationData} onSubmission={handleSubmission} onExit={() => handleExit('secondEducation')} formLocation='secondEducation'></ResumeBodyForm>
+            </Card> :
+            <AppButton onClick={() => editFormButtonClick('secondEducation')}>
+              Edit Second Education</AppButton>}
       </div>
       <div>
         {showWorkForm? 
@@ -172,7 +220,7 @@ function App() {
             onExit={() => handleExit('work')} 
             formLocation='work'></ResumeBodyForm> 
           </Card> :
-            <AppButton onClick={() => editFormButtonClick('work')}>Edit Work History</AppButton>
+            <AppButton onClick={() => editFormButtonClick('work')}>Edit Job One</AppButton>
           }
       </div>
       <div>
@@ -184,7 +232,7 @@ function App() {
           onExit={() => handleExit('secondWork')}
           formLocation='secondWork'></ResumeBodyForm>
         </Card> :
-        <AppButton onClick={() => editFormButtonClick('secondWork')}>Edit Work History</AppButton>
+        <AppButton onClick={() => editFormButtonClick('secondWork')}>Edit Job Two</AppButton>
           }
       </div>
       <div>
@@ -196,7 +244,7 @@ function App() {
           initialValues={thirdWorkData}
           formLocation='thirdWork'></ResumeBodyForm>
         </Card> :
-        <AppButton onClick={() => editFormButtonClick('thirdWork')}>Edit Work History</AppButton>}
+        <AppButton onClick={() => editFormButtonClick('thirdWork')}>Edit Job Three</AppButton>}
       </div>
       <div>
         {showSkillsForm?
@@ -214,7 +262,9 @@ function App() {
       <ResumeHeader 
       fullName={headerData.fullName} 
       email={headerData.email} 
-      phoneNumber={headerData.phoneNumber}>
+      phoneNumber={headerData.phoneNumber}
+      website={headerData.website}
+      linkedIn={headerData.linkedIn}>
       </ResumeHeader>
       <div className="cv-output-content-div">
         <Section name='Education'></Section>
@@ -229,6 +279,17 @@ function App() {
           bullet3={educationData.bullet3}
           bullet4={educationData.bullet4}
           bullet5={educationData.bullet5}></BulletsList>
+        <TopicHeader
+          title={secondEducationData.title}
+          date={secondEducationData.date}
+          institution={secondEducationData.institution}
+          location={secondEducationData.location}></TopicHeader>
+        <BulletsList 
+          bullet1={secondEducationData.bullet1}
+          bullet2={secondEducationData.bullet2}
+          bullet3={secondEducationData.bullet3}
+          bullet4={secondEducationData.bullet4}
+          bullet5={secondEducationData.bullet5}></BulletsList>
       </div>
       <div className="cv-output-content-div">
         <Section name='Work Experience'></Section>

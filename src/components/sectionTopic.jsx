@@ -1,7 +1,7 @@
 export default function TopicHeader({ title, date, institution, location }) {
     return (
         <>
-            <div className="cv-output-topic-row">
+            <div className="cv-output-topic-row title">
                 <p><strong>{title}</strong></p>
                 <p>{date}</p>
             </div>

@@ -36,6 +36,8 @@
 .cv-output-container {
   border: 1mm solid black;
   width: 55vw;
+  margin-bottom: 4vw;
+  margin-right: 1vw;
 }
 .cv-output-header {
   background-color: blueviolet;
